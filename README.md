@@ -154,3 +154,18 @@ If you plan to use late submission days, remember to notify the TAs via email bo
   See the [Adding assets and images](https://flutter.dev/docs/development/ui/assets-and-images) page in the Flutter documentation for more details.
 
 - Utilize VSCode's "Extract Widget" refactoring tool to assist in isolating sections of your code into separate widget classes. This approach is demonstrated in the "[Your first Flutter app](https://codelabs.developers.google.com/codelabs/flutter-codelab-first#0)" codelab assigned for the previous week.
+
+## Result/Output
+
+Screenshot - 1 
+
+![My Submission](assets/images/view_1.png)
+
+Screenshot - 2 
+
+![My Submission](assets/images/view_2.png)
+
+Screenshot - 3 
+
+![My Submission](assets/images/view_3.png)
+

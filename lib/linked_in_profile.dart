@@ -1,25 +1,23 @@
 import 'package:cs442_mp1/main.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/experience.dart';
 import 'widgets/education.dart';
+import 'widgets/experience.dart';
 import 'widgets/project.dart';
-
-//import 'package:cs442_mp1/widgets/experience.dart';
+import 'widgets/skill.dart';
 
 class LinkedInProfile extends StatelessWidget {
   
   final UserInfo userInfo;
   const LinkedInProfile(this.userInfo);
 
-  //const LinkedInProfile({super.key, required this.user});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.grey[400],
+        backgroundColor: Colors.grey[100],
+
+        // Display the app bar
         appBar: AppBar(
           title: const Text('Tejaswini Viswanath'),
           centerTitle: true,
@@ -38,22 +36,29 @@ class LinkedInProfile extends StatelessWidget {
             ),
           ],
         ),
+
         body: SingleChildScrollView(
           child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Display the user's profile picture
-            Container(
-              margin: const EdgeInsets.all(16),
-              child: Image.asset(
-                userInfo.imagePath, 
-                width: 418,
-                height: 418,
-                fit: BoxFit.cover,
-                ),              
+            Stack(
+             alignment: Alignment.centerLeft,
+              children: [
+
+                 // Display the user's profile picture
+                Container(
+                  margin: const EdgeInsets.all(16),
+                  child: Image.asset(
+                    userInfo.imagePath, 
+                    width: 400,
+                    height: 400,
+                    fit: BoxFit.cover,
+                    ),    
+                ), 
+              ],
             ),
 
-            // Display the user's name, position, and company
+            // Display the user's name and position
             Container(
               margin: const EdgeInsets.all(16),
               child: Column(
@@ -61,65 +66,118 @@ class LinkedInProfile extends StatelessWidget {
                 children: [
                   Text(
                     userInfo.name,
-                    style: const TextStyle(fontSize: 24),
+                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
+                  SizedBox(height: 5),
                   Text(
                     userInfo.position,
                     style: const TextStyle(fontSize: 16),
                   ),
-                  // Text(
-                  //   userInfo.company,
-                  //   style: const TextStyle(fontSize: 16),
-                  // ),
                 ],
               ),
             ),
 
-            // Display the user's contact information
+            SizedBox(height: 1),
+
+            // Display the user's contact information and location
             Container(
               margin: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Email: ${userInfo.email}'),
-                  Text('location: ${userInfo.location}'),
+                  Row(
+                    children: [
+                      Icon(Icons.email, color: Colors.blue), // Add the email icon
+                      SizedBox(width: 8), // Add spacing between icon and text
+                      Text('Email: ${userInfo.email}'),
+                    ],
+                  ),
+                  // Location with an icon
+                  Row(
+                    children: [
+                      Icon(Icons.location_on, color: Colors.red), // Add the location icon
+                      SizedBox(width: 8), // Add spacing between icon and text
+                      Text('Location: ${userInfo.location}'),
+                    ],
+                  ),
                 ],
               ),
             ),
 
+            SizedBox(height: 1),
+            
             // Display the user's summary information
             Container(
               margin: const EdgeInsets.all(16),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                    Text(
-                    userInfo.summary,
-                    style: const TextStyle(fontSize: 16),
-                  )
-                ],
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.person, color: Colors.green), // Add the summary icon
+                        SizedBox(width: 8), // Add spacing between icon and text
+                        Text('Summary', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                      ],
+                    ),
+                    SizedBox(height: 8),
+                    Container(
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 192, 199, 248), // Set the background color for the summary
+                          borderRadius: BorderRadius.circular(5.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.2), // Shadow color
+                              spreadRadius: 2, // Adjust shadow spread
+                              blurRadius: 2, // Adjust shadow blur
+                              offset: Offset(0, 1), // Adjust shadow offset
+                            ),
+                          ], // Adjust the radius for a slight curve
+                        ),
+                       padding: EdgeInsets.all(10),
+                      child: Text( 
+                        userInfo.summary,
+                        style: const TextStyle(fontSize: 16),
+                      ), 
+                    ),  
+                  ],
               ),
             ),
 
-            // Display the user's education
+            // Display the user's education information
             ListTile(
-              title: Text('Education'),
-              // Use a ListView.builder to display multiple education entries
+              title: Row(
+                children: [
+                  Icon(Icons.school, color: Colors.green), // Add the education icon
+                  SizedBox(width: 8), // Add spacing between icon and text
+                  Text('Education', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  SizedBox(width: 8),
+                ],
+              ),
+             // Use a ListView.builder to display multiple education entries
               subtitle: ListView.builder(
                 shrinkWrap: true,
                 itemCount: userInfo.education.length,
                 itemBuilder: (context, index) {
-                  return Education(
-                    name: userInfo.education[index].name,
-                    degree: userInfo.education[index].degree,
-                    date: userInfo.education[index].date,
-                  );
+                return Education(
+                   name: userInfo.education[index].name,
+                   degree: userInfo.education[index].degree,
+                   date: userInfo.education[index].date,
+                );
                 },
               ),
             ),
 
+            // Display the user's experience information
             ListTile(
-              title: Text('Experience'),
+              title: Row(
+                children: [
+                  // Add the experience icon
+                  Icon(Icons.work, color: Colors.green),
+                  SizedBox(width: 8), // Add spacing between icon and text
+                  Text('Experience', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  SizedBox(width: 8),
+                ],
+              ),
               // Use a ListView.builder to display multiple experience entries
               subtitle: ListView.builder(
                 shrinkWrap: true,
@@ -135,8 +193,18 @@ class LinkedInProfile extends StatelessWidget {
               ),
             ),
 
+            // Display the user's projects information
             ListTile(
-              title: Text('Project'),
+              title: Row(
+                children: [
+                  // Add the Project icon
+                  Icon(Icons.code, color: Colors.green),
+                  SizedBox(width: 8), // Add spacing between icon and text
+                  Text('Projects', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  SizedBox(width: 8),
+                  SizedBox(height: 5),
+                ],
+              ),
               // Use a ListView.builder to display multiple experience entries
               subtitle: ListView.builder(
                 shrinkWrap: true,
@@ -146,61 +214,38 @@ class LinkedInProfile extends StatelessWidget {
                     projectName: userInfo.projects[index].projectName,
                     description: userInfo.projects[index].description,
                     date: userInfo.projects[index].date,
-                    //skills: userInfo.projects[index].skills,
                   );
                 },
               ),
             ),
-            
-            // Container(
-            //   margin: const EdgeInsets.all(16),
-            //   child: Card(
-            //     child: Column(
-            //       crossAxisAlignment: CrossAxisAlignment.start,
-            //       children: [
-            //         const Text('Education'),
-            //         ListTile(
-            //           title: (text: ('Dummy')),
-            //           leading: Image.asset(userInfo.education.logoPath),
-            //           title: Text(userInfo.education.name),
-            //           subtitle: Text(userInfo.education.degree),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // ListTile(
-            //   title: Text('Experience'),
-            //   // Use a ListView.builder to display multiple experience entries
-            //   subtitle: ListView.builder(
-            //     shrinkWrap: true,
-            //     itemCount: userInfo.education.length,
-            //     itemBuilder: (context, index) {
-            //       Experience(
-            //         companyName: userInfo.experience[index].companyName,
-            //         periodOfWork: userInfo.experience[index].periodOfWork,
-            //         about: userInfo.experience[index].about,
-            //         skills: userInfo.experience[index].skills,
-            //       );
-            //     },
-            //   ),
-            // ),
-            // Display the user's experience
-            // Container(
-            //   height: 200, // Set a fixed height for the inner ListView
-            //   child: ListView.builder(
-            //     itemCount: experiences.length,
-            //     itemBuilder: (context, index) {
-            //     return Experience(experience: experiences[index]);
-            //     },
-            //     shrinkWrap: true,
-            //   ),
-            //),
+          
+            // Display the user's skills information
+            ListTile(
+              title: Row(
+                children: [
+                  // Add the skills icon
+                  Icon(Icons.star, color: Colors.green),
+                  SizedBox(width: 8), // Add spacing between icon and text
+                  Text('Skills', style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  SizedBox(width: 8),
+                ],
+              ),
+              // Use a ListView.builder to display multiple skills entries
+              subtitle: ListView.builder(
+                shrinkWrap: true,
+                itemCount: userInfo.skills.length,
+                itemBuilder: (context, index) {
+                  return Skill(
+                    skillName: userInfo.skills[index].skillName,
+                    logoPath: userInfo.skills[index].logoPath,
+                  );
+                },
+              ),
+            ),
           ],
+          ),
         ),
-      ),
     ),
-    );
+  );
   }
-
 }

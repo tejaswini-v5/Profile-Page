@@ -16,10 +16,11 @@ class Experience extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      color: Color.fromARGB(255, 255, 161, 79),
       margin: EdgeInsets.all(8),
+      elevation: 2,
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -32,7 +33,7 @@ class Experience extends StatelessWidget {
             ),
             SizedBox(height: 8),
             Text(
-              'Period of Work: ${periodOfWork}',
+              'Duration: ${periodOfWork}',
               style: TextStyle(fontSize: 16),
             ),
             SizedBox(height: 8),
@@ -43,6 +44,7 @@ class Experience extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(height: 6),
             Text(
               about,
               style: TextStyle(fontSize: 16),
@@ -55,6 +57,7 @@ class Experience extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(height: 6),
             Wrap(
               spacing: 8,
               children: skills.map((skill) {

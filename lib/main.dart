@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class UserInfo {
   final String name;
   final String position;
-  //final String company;
   final String imagePath;
   final String email;
   final String location;
@@ -11,12 +10,12 @@ class UserInfo {
   final List<EducationInfo> education;
   final List<ExperienceInfo> experiences;
   final List<ProjectInfo> projects;
+  final List<SkillInfo> skills;
   
 
   UserInfo({
     required this.name,
     required this.position,
-    //required this.company,
     required this.imagePath,
     required this.email,
     required this.location,
@@ -24,6 +23,7 @@ class UserInfo {
     required this.education,
     required this.experiences,
     required this.projects,
+    required this.skills,
   });
 }
 
@@ -31,13 +31,12 @@ class EducationInfo {
   final String name;
   final String degree;
   final String date;
-  //final String logoPath;
 
   EducationInfo({
     required this.name,
     required this.degree,
     required this.date,
-    //required this.logoPath,
+
   });
 }
 
@@ -60,23 +59,30 @@ class ProjectInfo {
   final String projectName;
   final String description;
   final String date;
-  //final List<String> skills;
   
 
   ProjectInfo({
     required this.projectName,
     required this.description,
     required this.date,
-    //required this.skills,
+  });
+}
+
+class SkillInfo {
+  final String skillName;
+  final String logoPath;
+
+  SkillInfo({
+    required this.skillName,
+    required this.logoPath,
   });
 }
 
 void main() {
-  // Create a User object with dummy data
+  // User information
   UserInfo userInfo = UserInfo(
     name: 'Tejaswini Viswanath',
     position: 'Graduate Student at Illinois Institute of Techology | Ex-Software Engineer at ServiceNow',
-    //company: 'Graduate Student at Illinois Institute of Techology',
     imagePath: 'assets/images/ProfessionalHeadShot.jpeg',
     email: 'tejaswini@gmail.com',
     location: 'Chicago, Illinois, United States',
@@ -86,26 +92,24 @@ void main() {
       name: 'Illinois Institute of Techology',
       degree: 'Masters in Computer Science',
       date: 'Aug 2021 - Present',
-      //logoPath: 'assets/images/ProfessionalHeadShot.jpeg',
       ),
       EducationInfo(
         name: 'Keshav Memorial Institute of Technology',
         degree: 'Bachelors in Computer Science',
         date: 'Aug 2017 - May 2021',
-        //logoPath: 'assets/images/ProfessionalHeadShot.jpeg',
       ),
     ],
     experiences: [
       ExperienceInfo(
         companyName: 'ServiceNow',
-        periodOfWork: 'July 2019 - July 2021',
-        about: 'Worked as a Software Engineer in the ITSM team',
+        periodOfWork: 'Dec 2021- July 2023',
+        about: 'Worked as a Software Engineer in the SPM team',
         skills:  ['Flutter', 'Dart', 'Mobile App Development'],
       ),
       ExperienceInfo(
-        companyName: 'Company B',
-        periodOfWork: 'Mar 2018 - Nov 2019',
-        about: 'Web Developer',
+        companyName: 'KMIT',
+        periodOfWork: 'Mar 2021 - Nov 2021',
+        about: 'Web Developer Intern',
         skills: ['HTML', 'CSS', 'JavaScript'],
       ),
     ],
@@ -125,20 +129,24 @@ void main() {
           description: 'Conducted research on natural language processing and published a paper.',
           date: 'September 2021 - December 2021',
         ),
+    ],
+    skills: [
+      SkillInfo(
+        skillName: 'Flutter', 
+        logoPath: 'assets/images/flutter_logo.png'
+      ),
+      SkillInfo(
+        skillName: 'Dart', 
+        logoPath: 'assets/images/dart_logo.png'
+      ),
+      SkillInfo(
+        skillName: 'JavaScript', 
+        logoPath: 'assets/images/js_logo.png'
+      ),
     ]
   );
-  // Run the app
-
-  //  runApp(
-  //   LinkedInProfile(userInfo),
-  //   LinkedInProfile(userInfo), // Use ProfilePage as the home widget
-  // );
   runApp(MyApp(userInfo));
 }
-
-// class UserInfoPage extends StatelessWidget {
-//   final UserInfo userInfo;
-
 
 class MyApp extends StatelessWidget {
   final UserInfo user;

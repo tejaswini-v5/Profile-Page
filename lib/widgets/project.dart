@@ -13,9 +13,40 @@ class Project extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(projectName),
-      subtitle: Text('$description ($date)'),
+
+     return Card(
+      elevation: 2,
+      color: Color.fromARGB(255, 167, 227, 227),
+      margin: EdgeInsets.all(8),
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              projectName,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              date,
+              style: TextStyle(fontSize: 16, color: Colors.black),
+            ),
+            SizedBox(height: 8),
+            Text(
+              description,
+              style: TextStyle(
+                fontSize: 16,
+              ),
+            ),
+            SizedBox(height: 8),
+          ],
+        ),
+      ),
     );
   }
 }
