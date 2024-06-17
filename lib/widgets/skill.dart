@@ -4,7 +4,7 @@ class Skill extends StatelessWidget {
   final String skillName;
   final String logoPath;
 
-  Skill({
+  const Skill({super.key, 
     required this.skillName,
     required this.logoPath,
   });
@@ -12,17 +12,17 @@ class Skill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
   return Container(
-    margin: EdgeInsets.symmetric(vertical: 8), // Adjust vertical spacing
-    padding: EdgeInsets.all(12), // Add padding to the container
+    margin: const EdgeInsets.symmetric(vertical: 8), // Adjust vertical spacing
+    padding: const EdgeInsets.all(12), // Add padding to the container
     decoration: BoxDecoration(
-      color: Color.fromARGB(255, 247, 197, 223), // Background color
+      color: const Color.fromARGB(255, 247, 197, 223), // Background color
       borderRadius: BorderRadius.circular(16), // Rounded corners
       boxShadow: [
         BoxShadow(
           color: Colors.grey.withOpacity(0.3), // Shadow color
           spreadRadius: 2, // Adjust shadow spread
           blurRadius: 4, // Adjust shadow blur
-          offset: Offset(0, 2), // Adjust shadow offset
+          offset: const Offset(0, 2), // Adjust shadow offset
         ),
       ],
     ),
@@ -48,11 +48,11 @@ class Skill extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 16), // Add horizontal spacing between logo and text
+        const SizedBox(width: 16), // Add horizontal spacing between logo and text
         // Skill name
         Text(
           skillName, // Display the skill name
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 18, // Adjust font size
             color: Colors.black, // Text color
             fontWeight: FontWeight.bold, // Add bold font weight

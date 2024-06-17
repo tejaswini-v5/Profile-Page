@@ -6,7 +6,7 @@ class Experience extends StatelessWidget {
   final String about;
   final List<String> skills;
 
-  Experience({
+  const Experience({super.key, 
     required this.companyName,
     required this.periodOfWork,
     required this.about,
@@ -16,48 +16,48 @@ class Experience extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color.fromARGB(255, 255, 161, 79),
-      margin: EdgeInsets.all(8),
+      color: const Color.fromARGB(255, 255, 161, 79),
+      margin: const EdgeInsets.all(8),
       elevation: 2,
       child: Padding(
-        padding: EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               companyName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
-              'Duration: ${periodOfWork}',
-              style: TextStyle(fontSize: 16),
+              'Duration: $periodOfWork',
+              style: const TextStyle(fontSize: 16),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'About:',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 6),
+            const SizedBox(height: 6),
             Text(
               about,
-              style: TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 16),
             ),
-            SizedBox(height: 8),
-            Text(
+            const SizedBox(height: 8),
+            const Text(
               'Skills:',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(height: 6),
+            const SizedBox(height: 6),
             Wrap(
               spacing: 8,
               children: skills.map((skill) {

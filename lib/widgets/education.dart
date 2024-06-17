@@ -5,7 +5,7 @@ class Education extends StatelessWidget {
   final String degree;
   final String date;
 
-  Education({
+  const Education({super.key, 
     required this.name,
     required this.degree,
     required this.date,
@@ -17,18 +17,18 @@ class Education extends StatelessWidget {
 
     return Card(
       elevation: 2,
-      color: Color.fromARGB(255, 247, 230, 135),
-      margin: EdgeInsets.all(8),
+      color: const Color.fromARGB(255, 247, 230, 135),
+      margin: const EdgeInsets.all(8),
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
               Row(
                 children: [
-                  Icon(Icons.description, color: Colors.purple, size: 20), // Add the date icon
-                          SizedBox(width: 8), // Add spacing between icon and text
+                  const Icon(Icons.description, color: Colors.purple, size: 20), // Add the date icon
+                          const SizedBox(width: 8), // Add spacing between icon and text
                           Text(
                             name,
                             style: const TextStyle(
@@ -38,10 +38,10 @@ class Education extends StatelessWidget {
                           ),
                   ],
                 ),
-              SizedBox(height: 5), // Add a vertical space between "name" and "degree"
+              const SizedBox(height: 5), // Add a vertical space between "name" and "degree"
               Row(
                     children: [
-                          SizedBox(width: 29), // Adjust spacing between "name" and "degree"
+                          const SizedBox(width: 29), // Adjust spacing between "name" and "degree"
                           Text(
                             degree,
                             style: const TextStyle(
@@ -51,10 +51,10 @@ class Education extends StatelessWidget {
                           ),
                         ],
                 ),
-              SizedBox(height: 5), // Add a vertical space between "degree" and "date"
+              const SizedBox(height: 5), // Add a vertical space between "degree" and "date"
               Row(
                   children: [
-                          SizedBox(width: 29), // Adjust spacing between "degree" and "date"
+                          const SizedBox(width: 29), // Adjust spacing between "degree" and "date"
                           Text(
                            date,
                             style: const TextStyle(
@@ -64,7 +64,7 @@ class Education extends StatelessWidget {
                           ),
                         ],
                   ),
-                SizedBox(height: 16), // Add vertical spacing between education entries
+                const SizedBox(height: 16), // Add vertical spacing between education entries
               ],
 
 

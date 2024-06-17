@@ -83,15 +83,15 @@ void main() {
   UserInfo userInfo = UserInfo(
     name: 'Tejaswini Viswanath',
     position: 'Graduate Student at Illinois Institute of Techology | Ex-Software Engineer at ServiceNow',
-    imagePath: 'assets/images/ProfessionalHeadShot.jpeg',
-    email: 'tejaswini@gmail.com',
+    imagePath: 'assets/images/TejaswiniToonHeadShot.jpeg',
+    email: 'tviswanath@hawk.iit.edu',
     location: 'Chicago, Illinois, United States',
     summary: 'I am a graduate student at Illinois Institute of Technology. I am currently pursuing my Masters in Computer Science. I have 2 years of experience as a Software Engineer at ServiceNow. I am passionate about learning new technologies and I am looking for a full-time opportunity as a Software Engineer.',
     education: [
       EducationInfo(
       name: 'Illinois Institute of Techology',
       degree: 'Masters in Computer Science',
-      date: 'Aug 2021 - Present',
+      date: 'Aug 2023 - Present',
       ),
       EducationInfo(
         name: 'Keshav Memorial Institute of Technology',
@@ -104,13 +104,13 @@ void main() {
         companyName: 'ServiceNow',
         periodOfWork: 'Dec 2021- July 2023',
         about: 'Worked as a Software Engineer in the SPM team',
-        skills:  ['Flutter', 'Dart', 'Mobile App Development'],
+        skills:  ['JavaScript', 'Java', 'AngularJS', 'ReactJS', 'Flutter', 'Dart', 'Mobile App Development'],
       ),
       ExperienceInfo(
         companyName: 'KMIT',
         periodOfWork: 'Mar 2021 - Nov 2021',
         about: 'Web Developer Intern',
-        skills: ['HTML', 'CSS', 'JavaScript'],
+        skills: ['HTML', 'CSS', 'JavaScript', 'Java', 'NodeJS', 'Machine Learning'],
       ),
     ],
     projects: [
@@ -151,7 +151,7 @@ void main() {
 class MyApp extends StatelessWidget {
   final UserInfo user;
 
-  const MyApp(this.user);
+  const MyApp(this.user, {super.key});
 
   @override
   Widget build(BuildContext context) {

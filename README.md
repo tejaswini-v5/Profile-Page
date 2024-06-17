@@ -159,7 +159,7 @@ If you plan to use late submission days, remember to notify the TAs via email bo
 
 Screenshot - 1 
 
-![My Submission](assets/images/view_1.png)
+![My Submission](assets/images/view1.png)
 
 Screenshot - 2 
 
